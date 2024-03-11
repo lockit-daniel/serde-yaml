@@ -93,7 +93,7 @@ impl<'a> Emitter<'a> {
                     let version_directive = ptr::null_mut();
                     let tag_directives_start = ptr::null_mut();
                     let tag_directives_end = ptr::null_mut();
-                    let implicit = true;
+                    let implicit = false;
                     sys::yaml_document_start_event_initialize(
                         sys_event,
                         version_directive,
@@ -103,7 +103,7 @@ impl<'a> Emitter<'a> {
                     )
                 }
                 Event::DocumentEnd => {
-                    let implicit = true;
+                    let implicit = false;
                     sys::yaml_document_end_event_initialize(sys_event, implicit)
                 }
                 Event::Scalar(mut scalar) => {
